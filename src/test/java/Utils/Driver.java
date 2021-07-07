@@ -1,5 +1,6 @@
 package Utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -9,7 +10,7 @@ public class Driver {
     private static Driver driver = null;
     public RemoteWebDriver webDriver;
 
-    private Driver() {
+    public Driver() {
         setNewDriver();
     }
 
@@ -33,7 +34,7 @@ public class Driver {
         }
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\rita.rus\\IdeaProjects\\fisrt_maven_project\\chromedriver.exe");
         webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public void exit() {
