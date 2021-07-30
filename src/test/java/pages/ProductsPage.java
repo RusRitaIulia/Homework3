@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class ProductsPage extends BasePage {
-    private static final By firstProduct = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[1]/div/a[1]/img");
-    private static final By secondProduct = By.xpath("//*[@id=\"center_column\"]/ul/li[2]/div/div[1]/div/a[1]/img");
-    private static final By thirdProduct = By.xpath("//*[@id=\"center_column\"]/ul/li[3]/div/div[1]/div/a[1]/img");
+    private static final By firstProduct = By.xpath("//img[contains(@src,'http://automationpractice.com/img/p/1/2/12-home_default.jpg')]");
+    private static final By secondProduct = By.xpath("//img[contains(@src,'http://automationpractice.com/img/p/1/0/10-home_default.jpg')]");
+    private static final By thirdProduct = By.xpath("//img[contains(@src,'http://automationpractice.com/img/p/1/6/16-home_default.jpg')]");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -27,11 +27,6 @@ public class ProductsPage extends BasePage {
     }
 
     public void clickOnThirdProduct() {
-        waitUntilElementIsClickable(thirdProduct);
-        driver.findElement(thirdProduct).click();
-    }
-
-    public void clickOnAnyProduct() {
         waitUntilElementIsClickable(thirdProduct);
         driver.findElement(thirdProduct).click();
     }

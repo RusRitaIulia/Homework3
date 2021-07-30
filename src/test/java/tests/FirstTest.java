@@ -43,7 +43,7 @@ public class FirstTest extends BaseTest {
         homePage.clickOnSearchButton();
         productsPage.clickOnSecondProduct();
         selectedProductPage.clickOnSizeDropdown();
-        selectedProductPage.clickOnColorButton();
+        selectedProductPage.clickOnColorButton("Pink");
         selectedProductPage.scrollDown();
         selectedProductPage.clickOnAddToCartButton();
         selectedProductPage.isProductAddedToCart();
@@ -57,7 +57,7 @@ public class FirstTest extends BaseTest {
         productsPage.clickOnThirdProduct();
         selectedProductPage.clickOnQuantityAddButton();
         selectedProductPage.clickOnSizeDropdown();
-        selectedProductPage.clickOnColorButton2();
+        selectedProductPage.clickOnColorButton("White");
         selectedProductPage.scrollDown();
         selectedProductPage.clickOnAddToCartButton();
         selectedProductPage.isProductAddedToCart();

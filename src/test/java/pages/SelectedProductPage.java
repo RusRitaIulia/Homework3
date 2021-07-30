@@ -10,12 +10,11 @@ import org.testng.Assert;
 
 public class SelectedProductPage extends BasePage {
     private static final By addToCartSelector = By.id("add_to_cart");
-    private static final By productSuccessfullyAdded = By.xpath("//body[1]/div[1]/div[1]/header[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/h2[1]");
+    private static final By productSuccessfullyAdded = By.xpath("//div[contains(@class,'layer_cart_product')]//h2");
     private static final By sizeDropdownSizeM = By.xpath("//*[@id=\"group_1\"]/option[2]");
-    private static final By colorButton = By.xpath("//*[@id=\"color_24\"]");
     private static final By quantityButton = By.xpath("//*[@id=\"quantity_wanted_p\"]/a[2]/span/i");
-    private static final By colorButton2 = By.xpath("//*[@id=\"color_8\"]");
     private static final By proceedToCheckoutButton = By.cssSelector("a[title=\"Proceed to checkout\"]");
+    private static final String colorButton = "//a[contains(@id,'color_')][@title='%s']";
 
     public SelectedProductPage(WebDriver driver) {
         super(driver);
@@ -31,15 +30,11 @@ public class SelectedProductPage extends BasePage {
         driver.findElement(sizeDropdownSizeM).click();
     }
 
-    public void clickOnColorButton() {
-        waitUntilElementIsClickable(colorButton);
-        driver.findElement(colorButton).click();
+
+    public void clickOnColorButton(String colorToPick) {
+        driver.findElement(By.xpath(String.format((colorButton), colorToPick))).click();
     }
 
-    public void clickOnColorButton2() {
-        waitUntilElementIsClickable(colorButton2);
-        driver.findElement(colorButton2).click();
-    }
 
     public void clickOnQuantityAddButton() {
         waitUntilElementIsClickable(quantityButton);
