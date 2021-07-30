@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ProductsPage extends BasePage {
     private static final By firstProduct = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[1]/div/a[1]/img");
     private static final By secondProduct = By.xpath("//*[@id=\"center_column\"]/ul/li[2]/div/div[1]/div/a[1]/img");
-    private static final By anyProduct = By.xpath("//*[@id=\"center_column\"]/ul/li[3]/div/div[1]/div/a[1]/img");
+    private static final By thirdProduct = By.xpath("//*[@id=\"center_column\"]/ul/li[3]/div/div[1]/div/a[1]/img");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -25,13 +26,24 @@ public class ProductsPage extends BasePage {
         driver.findElement(secondProduct).click();
     }
 
+    public void clickOnThirdProduct() {
+        waitUntilElementIsClickable(thirdProduct);
+        driver.findElement(thirdProduct).click();
+    }
+
     public void clickOnAnyProduct() {
-        waitUntilElementIsClickable(anyProduct);
-        driver.findElement(anyProduct).click();
+        waitUntilElementIsClickable(thirdProduct);
+        driver.findElement(thirdProduct).click();
     }
 
     public void waitUntilElementIsClickable(By element) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public void waitForElement(By element) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+
 }
